@@ -19,6 +19,12 @@ mkdir -p /nrf5 && \
 unzip -q /tmp/nRF5_SDK_for_Thread_and_Zigbee_v3.2.0.zip -d /nrf5/nRF5_SDK_for_Thread_and_Zigbee_v3.2.0 && \
 rm /tmp/nRF5_SDK_for_Thread_and_Zigbee_v3.2.0.zip
 
+# Download NRF5 SDK v16.0.0 and extract nRF5 SDK to /nrf5/nRF5_SDK_16.0.0
+RUN curl -SL https://developer.nordicsemi.com/nRF5_SDK/nRF5_SDK_v16.x.x/nRF5_SDK_16.0.0_98a08e2.zip > /tmp/SDK_16.0.0.zip && \
+mkdir -p /nrf5 && \
+unzip -q /tmp/SDK_16.0.0.zip -d /nrf5/nRF5_SDK_16.0.0 && \
+rm /tmp/SDK_16.0.0.zip
+
 # Add micro-ecc to SDK
 RUN curl -SL https://github.com/kmackay/micro-ecc/archive/v1.0.zip > /tmp/micro-ecc_v1.0.zip && \
 unzip -q /tmp/micro-ecc_v1.0.zip -d /nrf5/nRF5_SDK_for_Thread_and_Zigbee_v3.2.0/external/micro-ecc && \
