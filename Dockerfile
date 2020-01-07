@@ -46,6 +46,19 @@ rm /tmp/micro-ecc_v1.0.zip
 # Install nRF Tools (makes it easy to build a DFU package)
 RUN pip install nrfutil
 
+# Install nRF5x Command Line Tools (nrfjprog ... etc)
+# ref: https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Command-Line-Tools
+# v10.5.0 for Linux64
+# Note: maybe also to map dev port when docker container run (only keep the commands for memo)
+#
+# RUN curl -SL https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/nRFCommandLineTools1050Linuxamd64tar.gz > /tmp/nRFCommandLineTools1050Linuxamd64.tar.gz && \
+# mkdir -p /nrf5/nRF-command-line-tools && \
+# tar zxvf /tmp/nRFCommandLineTools1050Linuxamd64.tar.gz -C /nrf5/nRF-command-line-tools && \
+# cd /nrf5/nRF-command-line-tools && \
+# tar zxvf nRF-Command-Line-Tools_10_5_0_Linux-amd64.tar.gz && \
+# export PATH=$PATH:/nrf5/nRF-command-line-tools/nrfjprog && \
+# rm /tmp/nRFCommandLineTools1050Linuxamd64.tar.gz
+
 # Clone source of openthread, ot-br-posix, wpantund and openweave
 # Note: should use external volume to keep the repo update-to-date (only keep the commands for memo)
 #
