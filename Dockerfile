@@ -2,7 +2,10 @@ FROM ubuntu:16.04
 
 # Download tools and prerequisites
 RUN apt-get update && \
-apt-get install -y curl git unzip bzip2 build-essential gcc-multilib srecord pkg-config python3-pip python3-dev libusb-1.0.0 && \
+apt-get install -y curl git unzip bzip2 software-properties-common \
+            build-essential gcc-multilib srecord \
+            pkg-config python3-pip python3-dev \
+            libusb-1.0.0 && \
 apt-get clean all && \
 ln -s /usr/bin/python3 /usr/local/bin/python && \
 pip3 install --upgrade pip
@@ -35,10 +38,16 @@ rm /tmp/micro-ecc_v1.0.zip
 RUN pip install nrfutil
 
 # Clone source of openthread, ot-br-posix, wpantund and openweave
-# Note: should use external volume to keep the repo update-to-date
+# Note: should use external volume to keep the repo update-to-date (only keep the commands for memo)
 #
 # RUN mkdir -p /nrf5/openthread && \
 # git clone https://github.com/openthread/openthread.git /nrf5/openthread/openthread && \
+# cd /nrf5/openthread/openthread/script && \
+# sed -e 's/sudo //g' ./bootstrap > ./bootstrap.tmp && rm -f ./bootstrap && mv ./bootstrap.tmp ./bootstrap && \
+# chmod u+x ./bootstrap && \ 
+# cd .. && \ 
+# ./script/bootstrap && \
+# ./bootstrap && \
 # git clone https://github.com/openthread/ot-br-posix.git /nrf5/openthread/ot-br-posix && \
 # git clone https://github.com/openthread/wpantund.git /nrf5/openthread/wpantund && \
 # mkdir -p /nrf5/openweave && \
