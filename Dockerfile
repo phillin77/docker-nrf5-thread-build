@@ -1,8 +1,7 @@
 FROM ubuntu:16.04
 
 # Download tools and prerequisites
-RUN apt-key update && \
-apt-get update && \
+RUN apt-get update && \
 apt-get install -y curl git unzip bzip2 build-essential gcc-multilib srecord pkg-config python3-pip python3-dev libusb-1.0.0 && \
 apt-get clean all && \
 ln -s /usr/bin/python3 /usr/local/bin/python && \
