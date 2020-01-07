@@ -33,3 +33,16 @@ rm /tmp/micro-ecc_v1.0.zip
 
 # Install nRF Tools (makes it easy to build a DFU package)
 RUN pip install nrfutil
+
+# Clone source of openthread, ot-br-posix, wpantund and openweave
+# Note: should use external volume to keep the repo update-to-date
+#
+# RUN mkdir -p /nrf5/openthread && \
+# git clone https://github.com/openthread/openthread.git /nrf5/openthread/openthread && \
+# git clone https://github.com/openthread/ot-br-posix.git /nrf5/openthread/ot-br-posix && \
+# git clone https://github.com/openthread/wpantund.git /nrf5/openthread/wpantund && \
+# mkdir -p /nrf5/openweave && \
+# git clone https://github.com/openweave/openweave-core.git /nrf5/openweave/openweave-core && \
+# git clone https://github.com/openweave/openweave-nrf52840-lock-example.git /nrf5/openweave/openweave-nrf52840-lock-example
+
+WORKDIR /nrf5
