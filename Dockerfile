@@ -1,4 +1,7 @@
-FROM ubuntu:16.04
+# For nRF5 SDK ONLY
+#FROM ubuntu:16.04
+# Base on openthread/environment (for openthread build environment)
+FROM openthread/environment:latest
 
 # Download tools and prerequisites
 RUN apt-get update && \
